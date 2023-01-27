@@ -10,10 +10,9 @@ I'm a Frontend developer...
 
 ## Screenshots
 
-<img src="screenshots/login.png" alt="My"/>
+![image description](screeshots/login.png)
+![image description](screeshots/Home.png)
+![image description](screeshots/Register.png)
 
-<img src="/screenshots/Home.png" alt="homeImg"/>
-
-<img src="screenshots/Register.png" alt="Register"/>
 
 Made with ❤️ by 7hours
