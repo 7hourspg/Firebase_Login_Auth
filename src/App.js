@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Route, Routes, Navigate} from "react-router-dom";
+import {DataContext} from "./Context/Context";
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 
 function App() {
+  const {getEmail} = React.useContext(DataContext);
+  const ProctedRoute = ({children}) => {
+    if (!getEmail) {
+      return <Navigate to="login" />;
+    }
+    return children;
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProctedRoute>
+              <Home />
+            </ProctedRoute>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/reg" element={<Register />} />
+      </Routes>
+    </>
   );
 }
 
